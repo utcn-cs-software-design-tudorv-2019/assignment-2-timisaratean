@@ -21,11 +21,11 @@ public class EnrollmentDAO implements EnrollmentRepository {
         return user;
 
     }
-	public List<Object> list() {
+	public List<Enrollment> list() {
 
         Session session = sessionFactory.openSession();
         Criteria cr = session.createCriteria(Enrollment.class);
-        List <Object> results = cr.list();
+        List <Enrollment> results = cr.list();
         session.close();
         return results;
 

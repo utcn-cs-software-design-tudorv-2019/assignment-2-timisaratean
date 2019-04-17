@@ -24,6 +24,9 @@ public class UserBLL {
 
         userRepository.insert(client);
     }
+	public int findId(String username) {
+		return userRepository.findId(username);
+	}
 	public int login(String name, String password) {
 		List<User> users=list();
 		for (User u:users) {

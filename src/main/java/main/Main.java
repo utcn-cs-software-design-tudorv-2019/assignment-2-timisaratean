@@ -6,6 +6,7 @@ import java.util.List;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+import controller.Controller;
 import model.Course;
 import model.CourseBLL;
 import model.Enrollment;
@@ -15,13 +16,14 @@ import model.Profile;
 import model.ProfileBLL;
 import model.User;
 import model.UserBLL;
+import view.Login;
 
 public class Main {
 	public static void main(String[] args) {
-		Injector guice=Guice.createInjector(new GuiceModule());
-		UserBLL user=guice.getInstance(UserBLL.class);
-		User u=user.findUser(1);
-		System.out.println(u.toString());
+		Login v = new Login();
+		
+		@SuppressWarnings("unused")
+		Controller c = new Controller(v);
 		
 	}
 }

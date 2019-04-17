@@ -18,7 +18,7 @@ public class EnrollmentBLL {
 	public Enrollment findEnroll(int id){
         return enrollmentRepository.findEnroll(id);
     }
-	public List<Object> list() {
+	public List<Enrollment> list() {
         return enrollmentRepository.list();
     }
 	public void create(Enrollment client) {

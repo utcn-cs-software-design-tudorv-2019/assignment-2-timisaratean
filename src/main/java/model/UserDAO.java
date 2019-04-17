@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import connection.Connection;
 import model.User;
@@ -24,6 +25,15 @@ public class UserDAO implements UserRepository {
         return user;
 
     }
+	public int findId(String username) {
+		 	Session session = sessionFactory.openSession();
+	        Criteria cr = session.createCriteria(User.class);
+	        cr.add(Restrictions.eq("username", username));
+	        List <User> results = cr.list();
+	        session.close();
+	        User u=results.get(0);
+	        return u.getId();
+	}
 	
 	public List<User> list() {
 
